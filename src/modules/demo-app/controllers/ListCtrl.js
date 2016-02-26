@@ -4,7 +4,7 @@ controller('ListCtrl', ['$scope','breweryService', function ($scope, breweryServ
 
     function extractData(results){
         var data = [];
-        
+
          _.each(results, function(result){
            data.push(_.pick(result, 'website','streetAddress', 'locality', 'region','postalCode','latitude', 'longitude', 'brewery'));
         });
