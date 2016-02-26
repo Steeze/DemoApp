@@ -1,0 +1,32 @@
+/* This file is all tech debt.
+   These html shipping manifests should probably be replaced with a pdf generated version as the project matures */
+.stockAreas {
+  border: 1px solid @panel-default-border;
+}
+
+.stockArea {
+  background: @panel-bg;
+  padding: @panel-body-padding;
+  padding-left: 0;
+  padding-right: 0;
+  .clearfix();
+
+  tr, td, td * {
+    page-break-inside: avoid;
+    page-break-before: auto;
+    page-break-after: auto;
+  }
+
+  .LineNum { width: 65px; }
+  .ItemNum { width: 190px; }
+  .Ordered { width: 70px; }
+  .Filled { width: 70px; }
+  .Packed { width: 70px; }
+}
+
+@media print {
+  .stockAreas, .stockArea {
+    border: none;
+    border-width: 0px;
+  }
+}

@@ -1,5 +1,5 @@
 /*
- * demo-app v 1.0.0a (build 20160225_215513_936)
+ * demo-app v 1.0.0a (build 20160226_114353_866)
  */
 
 (function(window, angular, _) {
@@ -23,13 +23,15 @@ var module = angular.module('demo-app', [ 'demo-api', 'ngAnimate', 'ngRoute', 'n
 module.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
 
        $routeProvider
-            .when('home', {
-                url:'/home',
+            .when('/home', {
                 templateUrl:'templates/demo-app/home.html',
                 controller:'HomeCtrl'
             })
+           .when('/list', {
+               templateUrl:'templates/demo-app/list.html',
+               controller:'ListCtrl'
+           })
             .otherwise({
-            url:'/home',
             templateUrl:'templates/demo-app/home.html',
             controller: 'HomeCtrl',
             activeNav: 'insights'
@@ -42,20 +44,46 @@ module.config(['$routeProvider', '$httpProvider', function($routeProvider, $http
 
 
 
-controller('HomeCtrl', ['$scope','widgetService', function ($scope, widgetService) {
+controller('HomeCtrl', ['$scope','sessionService', function ($scope, sessionService) {
 
         var ctrl = this;
 
-        ctrl.getWidgetSuccess = function(results){
-            $scope.widgets = results;
+        ctrl.success = function(data){
+            $scope.results = data;
         };
 
-        ctrl.getWidgetFailure = function(){
+        ctrl.failure = function(){
             $scope.errorText = 'A problem occurred getting the widgets!';
         };
 
-         widgetService.getWidgets().then(ctrl.getWidgetSuccess, ctrl.getWidgetFailure);
+    sessionService.get().then(ctrl.success, ctrl.failure);
     }
+]);
+
+controller('ListCtrl', ['$scope','breweryService', function ($scope, breweryService) {
+
+    var ctrl = this;
+
+    function extractData(results){
+        var data = [];
+
+         _.each(results, function(result){
+           data.push(_.pick(result, 'website','streetAddress', 'locality', 'region','postalCode','latitude', 'longitude', 'brewery'));
+        });
+
+        return data;
+    }
+
+    ctrl.success = function(results){
+        $scope.breweries = extractData(results.data);
+    };
+
+    ctrl.failure = function(){
+        $scope.errorText = 'A problem occurred getting the breweries!';
+    };
+
+    breweryService.get().then(ctrl.success, ctrl.failure);
+}
 ]);
 
 

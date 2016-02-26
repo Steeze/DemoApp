@@ -1,15 +1,15 @@
-controller('HomeCtrl', ['$scope','widgetService', function ($scope, widgetService) {
+controller('HomeCtrl', ['$scope','sessionService', function ($scope, sessionService) {
 
         var ctrl = this;
 
-        ctrl.getWidgetSuccess = function(results){
-            $scope.widgets = results;
+        ctrl.success = function(data){
+            $scope.results = data;
         };
 
-        ctrl.getWidgetFailure = function(){
+        ctrl.failure = function(){
             $scope.errorText = 'A problem occurred getting the widgets!';
         };
 
-         widgetService.getWidgets().then(ctrl.getWidgetSuccess, ctrl.getWidgetFailure);
+    sessionService.get().then(ctrl.success, ctrl.failure);
     }
 ]);

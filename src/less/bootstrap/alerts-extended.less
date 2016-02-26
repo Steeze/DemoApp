@@ -1,0 +1,21 @@
+.alert-messages {
+  top: 0px;//55px;
+  z-index: 1049;
+  display: block;
+  right:5px;
+  position:fixed;
+  max-width: 50%;
+
+  &.alert-success {
+    .alert-variant(@alert-success-text; @alert-success-border; @alert-success-bg);
+  }
+  &.alert-info {
+    .alert-variant(@alert-info-text; @alert-info-border; @alert-info-bg);
+  }
+  &.alert-warning {
+    .alert-variant(desaturate(@alert-warning-text,25%); @alert-warning-border; @alert-warning-bg);
+  }
+  &.alert-danger {
+    .alert-variant(@alert-danger-text; @alert-danger-border; @alert-danger-bg);
+  }
+}

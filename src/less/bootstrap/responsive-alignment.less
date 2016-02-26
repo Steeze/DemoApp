@@ -1,0 +1,110 @@
+/*
+
+Responsive Alignment classes.
+
+Purpose: These classes allow developers to specify positioning and quick-float based on screen size.
+
+Available classes:
+
+  .text-left-[xs sm md lg]
+    Aligns text to the left At the specified screen size or larger.
+
+  .text-right-[xs sm md lg]
+    Aligns text to the right At the specified screen size or larger.
+
+  .text-center-[xs sm md lg]
+    Aligns text to the center At the specified screen size or larger.
+
+  .pull-left-[xs sm md lg]
+    Quick-floats to the left At the specified screen size or larger.
+
+  .pull-right-[xs sm md lg]
+    Quick-floats to the right At the specified screen size or larger.
+
+
+Usage rules:  Do not mix with native (non-responsive) positioning classes shipped with bootstrap3
+Valid examples:
+
+To alternate a quick float on each screen size, one could do the following:
+class="pull-right-xs pull-left-sm pull-right-md pull-left-lg"
+
+To Have text fall left on mobile, but right on a tablet / desktop:
+class="text-right-sm"
+
+INVALID EXAMPLE: class="pull-left pull-right-sm"
+  -The pull-left will be more specific and override just about everything.  Do not mix responsive and non-responsive
+*/
+
+/* Extra small devices */
+.text-left-xs {
+  .text-left;
+}
+.text-center-xs {
+  .text-center;
+}
+.text-right-xs {
+  .text-right;
+}
+.pull-left-xs {
+  .pull-left;
+}
+.pull-right-xs {
+  .pull-right;
+}
+
+/* Small devices or larger */
+@media (min-width: @screen-sm-min) {
+  .pull-left-sm {
+    .pull-left;
+  }
+  .pull-right-sm {
+    .pull-right;
+  }
+  .text-left-sm {
+    .text-left;
+  }
+  .text-center-sm {
+    .text-center;
+  }
+  .text-right-sm {
+    .text-right;
+  }
+}
+
+/* Medium devices or larger */
+@media (min-width: @screen-md-min) {
+  .pull-left-md {
+    .pull-left;
+  }
+  .pull-right-md {
+    .pull-right;
+  }
+  .text-left-md {
+    .text-left;
+  }
+  .text-center-md {
+    .text-center;
+  }
+  .text-right-md {
+    .text-right;
+  }
+}
+
+/* Large devices */
+  @media (min-width: @screen-lg-min) {
+  .pull-left-lg {
+    .pull-left;
+  }
+  .pull-right-lg {
+    .pull-right;
+  }
+  .text-left-lg {
+    .text-left;
+  }
+  .text-center-lg {
+    .text-center;
+  }
+  .text-right-lg {
+    .text-right;
+  }
+}

@@ -12,7 +12,6 @@
   font-weight: @btn-font-weight;
   text-align: center;
   vertical-align: middle;
-  touch-action: manipulation;
   cursor: pointer;
   background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
   border: 1px solid transparent;
@@ -23,15 +22,13 @@
   &,
   &:active,
   &.active {
-    &:focus,
-    &.focus {
+    &:focus {
       .tab-focus();
     }
   }
 
   &:hover,
-  &:focus,
-  &.focus {
+  &:focus {
     color: @btn-default-color;
     text-decoration: none;
   }
@@ -46,9 +43,9 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-    cursor: @cursor-disabled;
+    cursor: not-allowed;
     pointer-events: none; // Future-proof disabling of clicks
-    .opacity(.65);
+    .opacity(.45);
     .box-shadow(none);
   }
 }
@@ -61,8 +58,10 @@
   .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
 }
 .btn-primary {
-  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+  .button-variant(#fff; darken(@panel-default-heading-bg,25%); saturate(darken(@panel-default-heading-bg,45%),20%));
+  //.button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
 }
+
 // Success appears as green
 .btn-success {
   .button-variant(@btn-success-color; @btn-success-bg; @btn-success-border);
@@ -88,11 +87,11 @@
 .btn-link {
   color: @link-color;
   font-weight: normal;
+  cursor: pointer;
   border-radius: 0;
 
   &,
   &:active,
-  &.active,
   &[disabled],
   fieldset[disabled] & {
     background-color: transparent;
@@ -143,6 +142,8 @@
 .btn-block {
   display: block;
   width: 100%;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 // Vertically space out multiple block buttons

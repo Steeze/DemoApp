@@ -1,0 +1,69 @@
+.cell-hover a {
+  display: block;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  padding:4px;
+}
+
+.cell-hover a:hover,
+.cell-hover a:focus {
+  text-decoration: none;
+  background-color: lighten(@well-bg,10%);
+  .border-glow(@gray-light);
+}
+
+.well-title {
+  border-bottom:1px solid @aesyntPurpleDesat;
+  color: @aesyntCharcoal;
+  margin-bottom: 2px;
+}
+
+.well-footer {
+  border-top: 1px solid @aesyntPurpleDesat;
+  padding-top: 10px;
+  margin-top: 5px;
+}
+
+ul.spaced {
+  :last-child{
+    border-bottom: none;
+  }
+  li{
+    border-bottom:1px dotted @aesyntSupportLightGrey;
+    a {
+      padding-bottom:5px;
+    }
+  }
+}
+
+div.spaced{
+  border-bottom:1px dotted @aesyntSupportLightGrey;
+  a {
+    padding-bottom:5px;
+  }
+}
+
+a i:hover{
+  text-decoration: none;
+}
+
+.well .well{
+  background-color: #fff;
+}
+
+/* This only works with block-level elements */
+.text-wrap-block-level{
+  overflow: hidden;
+  word-wrap:break-word;
+  -ms-word-wrap: break-word;
+}
+
+.font-weight-normal{
+  font-weight: normal;
+}
+
+.font-weight-light{
+  font-weight: lighter;
+}
+

@@ -1,0 +1,72 @@
+.navbar-backlink{
+  float:left;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
+.page-header-block {
+  background-color: @page-header-bg;
+  border-color: @page-header-border;
+  border-left: 1px solid @page-header-border;
+  border-right: 1px solid @page-header-border;
+  padding: @navbar-padding-vertical 15px;
+
+  .page-header-block-title {
+    color: @page-header-title-color;
+    font-size: @font-size-large;
+    font-weight: bold;
+  }
+
+  .btn-default {
+    .button-variant(#585858; @btn-default-bg; @btn-default-border);
+  }
+
+  .form-control,
+  .input-group-addon{
+    border:1px solid @btn-default-border;
+  }
+
+  .page-header-block-text {
+    color: @page-header-color;
+  }
+
+  .page-header-workflow-steps {
+    text-align: right;
+    color: darken(@page-header-title-color, 20%);
+
+    font-size: @font-size-base;
+
+   b {
+     color: @page-header-title-color;
+     font-size: @font-size-large;
+     font-weight: @bold;
+   }
+
+    a {
+      color: darken(@page-header-title-color, 20%);
+      text-decoration: underline;
+
+      &:hover,
+      &:focus {
+        color: @page-header-title-color;
+      }
+    }
+
+  }
+
+  .page-header-block-form {
+    padding: 10px 15px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    // Mixin behavior for optimum display
+    .form-inline();
+
+    .form-group {
+      @media (max-width: @grid-float-breakpoint-max) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+}

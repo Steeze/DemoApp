@@ -1,5 +1,5 @@
 /*
- * demo-api v 1.0.0a (build 20160225_215513_936)
+ * demo-api v 1.0.0a (build 20160226_114353_866)
  */
 
 (function(window, angular, _) {
@@ -14,6 +14,36 @@ var module = angular.module('demo-api', ['ngResource']),
     apiBaseUrl = window.apiConfig.baseUrl,
     apiBaseResourceUrl = apiBaseUrl.replace(/:(?=\d+)/g, '\\:');
 
+factory('breweryService', ['$http', function ($http) {
+
+    function onSuccess(result){
+        var data = result.data;
+        return data;
+    }
+
+    return {
+        get: function(){
+            return $http.get(apiBaseUrl + '/api')
+                .then(onSuccess);
+        }
+    };
+
+}]);
+factory('sessionService', ['$http', function ($http) {
+
+    function onSuccess(result){
+        var data = result.data;
+        return data;
+    }
+
+    return {
+        get: function(){
+            return $http.get(apiBaseUrl + '/v1/sessions/')
+                .then(onSuccess);
+        }
+    };
+
+}]);
 factory('widgetService', ['$http', function ($http) {
 
     function onSuccess(result){

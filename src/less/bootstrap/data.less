@@ -1,0 +1,323 @@
+ol.data-list2 {
+  list-style: none;
+  margin-left: 0;
+  .border-radius(@border-radius-small);
+  border: 1px solid @aesyntSupportLightGrey;
+
+  > h1 {
+    font-size: 1.8em;
+    line-height: 2em;
+    // account for well-sm padding for border
+    margin-top: -9px;
+    margin-bottom: 10px;
+
+    // reapply padding
+    padding: 0 9px 0 9px;
+
+    // add a border to the bottom.
+    border-bottom: 1px solid @aesyntCharcoal;
+  }
+
+  //TODO: box-sizing is still a little off to where if you're toggling
+  // the background color on :hover, it's not quite filling the whole li.
+  li {
+    .row;
+
+    width: 100%;
+    border-bottom: 1px solid @aesyntSupportLightGrey;
+    padding-right: 9px;
+    padding-left: 9px;
+    box-sizing: border-box;
+
+    > h2 {
+      margin-top: 3px;
+      font-size: 1.4em;
+      line-height: 1.6em;
+    }
+
+    dl[class*="span"] {
+      margin-top: 0;
+      margin-left: 0;
+      //.dl-horizontal;
+      padding-left: @grid-gutter-width;
+
+      dd, dt {
+        border-bottom: 1px dashed @aesyntSupportLightGrey;
+      }
+
+      dt {
+        text-align: left;
+      }
+
+      dd {
+        text-align: right;
+
+        &.number {
+          font-family: @font-family-monospace;
+        }
+      }
+    }
+
+
+    &.clickable {
+      position: relative;
+
+      &:before {
+        position: absolute;
+        display: block;
+        color: @aesyntPurple;
+        content: ">";
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 100%;
+        top: 50% - (18px / 2);
+        right: 9px;
+
+        &:hover {
+          //TODO: change color to something better.
+          color: @aesyntCharcoal;
+        }
+      }
+
+      &:hover {
+        //TODO: change color to something better.
+        background-color: @aesyntSupportLightGrey;
+      }
+    }
+  }
+}
+
+.data-list {
+  &.data-list-block-level {
+    .data-col, .data-group {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // the container for the data.
+  article {
+    padding: 5px;
+    position: relative;
+    .clearfix();
+    border-bottom: 1px solid @aesyntSupportMedGrey;
+  }
+  article.clickable:hover {
+    background-color: darken(@well-bg, 10%);
+  }
+
+  article.selected {
+    background-color: darken(@well-bg, 20%);
+  }
+
+  article.row [class*="span"] {
+    margin: 0;
+    min-height: 0;
+  }
+
+  article:last-of-type {
+    border-bottom: hidden;
+    margin-bottom: 0px;
+  }
+
+  dl {
+    //.dl-horizontal;
+    margin: 0;
+
+    dt {
+      width: 80px;
+      font-weight: normal;
+      margin-bottom: 0px;
+      .text-muted;
+    }
+
+    dd {
+      margin-left: 100px;
+      margin-bottom: 0px;
+    }
+  }
+
+  .data-col {
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    vertical-align: top;
+  }
+
+  .data-group {
+    display: inline-block;
+
+    margin-top: 10px;
+    width: 100%;
+    .text-wrap-block-level;
+
+    div:first-child {
+      border-bottom: 1px dotted @aesyntSupportLightGrey;
+    }
+
+    .data.data-number {
+      display: inline-block;
+      text-align: right;
+    }
+
+    .data {
+      vertical-align: top;
+      float: right;
+    }
+  }
+  .data-label {
+    margin: 0;
+    .text-muted;
+  }
+
+  .data {
+    margin: 0;
+
+    &.data-number {
+      text-align: right;
+    }
+
+    &.data-important {
+      font-size: @line-height-base;  //TODO : this looks like it would cut off the bottoms of g and p characters.
+    }
+  }
+
+  .data-actions {
+    display: block;
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 4px;
+    .clearfix();
+
+    button, a, .btn, [class*="span"] {
+      float: right;
+      margin-left: 4px;
+      margin-right: 0;
+    }
+  }
+
+  .data-groups {
+    .row;
+    .data-group {
+      .make-xs-column(12);
+      .make-sm-column(6);
+      .make-md-column(4);
+
+      @media (min-width: 768px) {
+        dt {
+          float: left;
+          width: auto;
+          font-weight: normal;
+          .text-muted;
+        }
+
+        dd {
+          margin-left: 100px;
+        }
+
+        article {
+          position: relative;
+          padding: -15px;
+          .clearfix();
+
+          .data-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            padding: 4px;
+
+            button, a, .btn, [class*="span"] {
+              &.pull-left {
+                float: right;
+                margin-left: 4px;
+                margin-right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/*
+
+@media (min-width: 768px) {
+  .data-list {
+    .clearfix();
+
+    .data-col, .data-group {
+      width: ( 724px / 2) - 80px;
+      margin-left: 40px;
+      float: left;
+    }
+
+    .data-col .data-group {
+      margin-left: 0;
+    }
+
+    dt {
+      float: left;
+      width: auto;
+      font-weight: normal;
+      .text-muted;
+    }
+
+    dd {
+      margin-left: 100px;
+    }
+
+    article {
+      position: relative;
+      padding: -15px;
+      .clearfix();
+
+      .data-actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 4px;
+
+        button, a, .btn, [class*="span"] {
+          &.pull-left {
+            float: right;
+            margin-left: 4px;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 979px) {
+  .data-list {
+    .clearfix();
+
+    .data-col, .data-group {
+      width: (920px / 3) - 80px;
+      margin-left: 40px;
+      float: left;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .data-list {
+    .clearfix();
+
+    .data-col, .data-group {
+      width: (1170px / 3) - 80px;
+      margin-left: 40px;
+      float: left;
+    }
+  }
+
+}
+
+*/

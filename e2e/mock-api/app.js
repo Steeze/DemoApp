@@ -6,6 +6,7 @@ var express = require('./node_modules/express');
 var routes = require('./routes');
 
 var widgets = require('./routes/widgets');
+var sessions = require('./routes/sessions');
 
 var http = require('http');
 var path = require('path');
@@ -77,6 +78,7 @@ app.get('/', routes.index);
  */
 widgets(app);
 
+sessions(app);
 
 server.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));

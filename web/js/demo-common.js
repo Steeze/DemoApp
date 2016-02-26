@@ -1,5 +1,5 @@
 /*
- * demo-common v 1.0.0a (build 20160225_215513_936)
+ * demo-common v 1.0.0a (build 20160226_114353_866)
  */
 
 (function(window, angular, _) {

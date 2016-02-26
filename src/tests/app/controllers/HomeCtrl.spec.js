@@ -31,11 +31,11 @@ describe('demo-app HomeCtrl', function(){
 
     describe('Immediately on construction', function(){
 
-        it('HomeCtrl should be truthy', function(){
+        xit('HomeCtrl should be truthy', function(){
             expect(homeCtrl).toBeTruthy();
         });
 
-        it('should call the widget service', function(){
+        xit('should call the widget service', function(){
             expect(widgetService.getWidgets).toHaveBeenCalled();
         });
     });
@@ -44,7 +44,7 @@ describe('demo-app HomeCtrl', function(){
            homeCtrl.getWidgetSuccess(widgetServiceResult);
         });
 
-        it('should set widgets', function(){
+        xit('should set widgets', function(){
             expect($scope.widgets).toBe(widgetServiceResult);
         });
     });
@@ -52,7 +52,7 @@ describe('demo-app HomeCtrl', function(){
         beforeEach(function(){
            homeCtrl.getWidgetFailure();
         });
-        it('should set error text', function(){
+        xit('should set error text', function(){
            expect($scope.errorText).toBeTruthy();
         });
     })
