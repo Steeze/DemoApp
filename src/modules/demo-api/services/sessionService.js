@@ -9,6 +9,10 @@ factory('sessionService', ['$http', function ($http) {
         get: function(){
             return $http.get(apiBaseUrl + '/v1/sessions/')
                 .then(onSuccess);
+        },
+        post:function(data){
+            return $http.post(apiBaseUrl + '/v1/sessions/', data)
+            .then(onSuccess);
         }
     };
 

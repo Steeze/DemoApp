@@ -42,6 +42,67 @@ templates["templates/demo-app/home.html"] = "<div class=\"page-header-block\">\
                 </div>\
             </div>\
         </div>\
+\
+        <form class=\"form-horizontal\" ng-submit=\"addSession(addSessionForm.$valid)\" name=\"addSessionForm\" role=\"form\" novalidate>\
+            <div class=\"form-group\">\
+                <div class=\"row\">\
+                    <div class=\"col-sm-3 control-label\">\
+                        <label for=\"txtSessionName\">Session Name :</label>\
+                    </div>\
+                    <div class=\"col-sm-4\">\
+                        <div class=\"controls\">\
+                            <input id=\"txtSessionName\"\
+                                   name=\"sessionName\"\
+                                   type=\"text\"\
+                                   ng-model=\"session.name\"\
+                                   required\
+                                   class=\"form-control\"\
+                                   ng-maxlength=\"50\"/>\
+                        </div>\
+                        <div ng-if=\"addSessionForm.$submitted  || addSessionForm.sessionName.$dirty\" ng-messages=\"addSessionForm.sessionName.$error\">\
+                            <div ng-message=\"required\" class=\"text-danger\" >Please enter a session name</div>\
+                            <div ng-message=\"maxlength\" class=\"text-danger\">Please shorten your session name</div>\
+                        </div>\
+                    </div>\
+                </div>\
+                <div class=\"row\">\
+                    <div class=\"col-sm-3 control-label\">\
+                        <label for=\"txtSessionAbstract\">Session Abstract :</label>\
+                    </div>\
+                    <div class=\"col-sm-4\">\
+                        <div class=\"controls\">\
+                            <input id=\"txtSessionAbstract\"\
+                                   name=\"sessionAbstract\"\
+                                   type=\"text\"\
+                                   ng-model=\"session.abstract\"\
+                                   required\
+                                   class=\"form-control\"\
+                                   ng-maxlength=\"50\"/>\
+                        </div>\
+                        <div ng-if=\"addSessionForm.$submitted  || addSessionForm.sessionName.$dirty\" ng-messages=\"addSessionForm.sessionName.$error\">\
+                            <div ng-message=\"required\" class=\"text-danger\" >Please enter a abstract</div>\
+                            <div ng-message=\"maxlength\" class=\"text-danger\">Please shorten your abstract</div>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+                <div class=\"row\">\
+                    <div class=\"col-sm-9 col-sm-offset-2\">\
+                        <div class=\"row\">\
+                            <div class=\"col-sm-2 col-xs-6\">\
+                                <button id=\"submitButton\" type=\"submit\" class=\"btn btn-primary\" >Continue</button>\
+                            </div>\
+                            <div class=\"col-sm-2 col-xs-6\">\
+                                <button type=\"button\" class=\"btn\">Cancel</button>\
+                            </div>\
+                        </div>\
+                    </div>\
+                </div>\
+\
+            </div>\
+        </form>\
+\
+\
     </div>\
 </div>\
 \

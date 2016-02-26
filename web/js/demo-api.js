@@ -1,5 +1,5 @@
 /*
- * demo-api v 1.0.0a (build 20160226_114353_866)
+ * demo-api v 1.0.0a (build 20160226_122640_860)
  */
 
 (function(window, angular, _) {
@@ -40,6 +40,10 @@ factory('sessionService', ['$http', function ($http) {
         get: function(){
             return $http.get(apiBaseUrl + '/v1/sessions/')
                 .then(onSuccess);
+        },
+        post:function(data){
+            return $http.post(apiBaseUrl + '/v1/sessions/', data)
+            .then(onSuccess);
         }
     };
 

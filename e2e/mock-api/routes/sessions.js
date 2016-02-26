@@ -56,17 +56,17 @@ module.exports = function(app){
     });
 
     app.post('/v1/sessions', function(req, res){
-        console.log(req);
+        console.log(req.body);
         return res.send(200);
     });
 
     app.delete('/v1/sessions/:id', function(req, res){
-        console.log(req);
+        console.log(req.body);
         return res.send(200);
     });
 
     app.put('/v1/sessions/:id', function(req, res){
-        console.log(req);
+        console.log(req.body);
         return res.send(200);
     });
 
