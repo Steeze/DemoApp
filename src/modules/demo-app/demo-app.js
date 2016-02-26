@@ -15,13 +15,15 @@ var module = angular.module('demo-app', [ 'demo-api', 'ngAnimate', 'ngRoute', 'n
 module.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
 
        $routeProvider
-            .when('home', {
-                url:'/home',
+            .when('/home', {
                 templateUrl:'templates/demo-app/home.html',
                 controller:'HomeCtrl'
             })
+           .when('/list', {
+               templateUrl:'templates/demo-app/list.html',
+               controller:'ListCtrl'
+           })
             .otherwise({
-            url:'/home',
             templateUrl:'templates/demo-app/home.html',
             controller: 'HomeCtrl',
             activeNav: 'insights'

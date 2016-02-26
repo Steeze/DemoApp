@@ -2,7 +2,7 @@ var fs = require('fs');
 
 module.exports = function (grunt) {
 
-    var port = grunt.option('port') || 9000;
+    var port = grunt.option('port') || 35729;
     var base = grunt.option('base') || '../demoapp.Web';
 
     // use hostname so that endpoints are dynamic
@@ -177,8 +177,9 @@ module.exports = function (grunt) {
                     options: {
                         port: port,
                         base: base,
-                        livereload: true,
-                        open: 'http://localhost:9000/demoapp/#'
+                        livereload: 35729,
+                        open: 'http://localhost:35729/demoapp/#',
+                        hostname:'localhost'
                     }
                 }
             },
@@ -399,7 +400,7 @@ module.exports = function (grunt) {
     grunt.registerTask('js-dev', ['info', 'concat', 'jshint', 'test']);
 
     //dev tasks
-    grunt.registerTask('dev-build', ['setenv:dev', 'preprocess', 'js-dev', 'less:dev', 'copy']);
+    grunt.registerTask('dev-build', ['setenv:dev', 'preprocess', 'uglify', 'js-dev', 'less:dev', 'copy']);
     grunt.registerTask('dev', ['dev-build','connect', 'watch']);
 
     //e2e tasks

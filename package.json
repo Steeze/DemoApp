@@ -34,6 +34,7 @@
     "grunt-template-jasmine-istanbul": "~0.2.5",
     "jquery": "^2.2.1",
     "moment": "^2.11.2",
+    "request": "^2.69.0",
     "underscore": "^1.8.3"
   },
   "dependencies": {
