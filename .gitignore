@@ -1,1 +1,12 @@
+.grunt
+.idea
 node_modules
+_ngTmplSpecHelper.js
+test-results.html
+web/js/demo-api.js
+web/js/demo-api.min.js
+web/js/demo-app.js
+web/js/demo-app.min.js
+web/js/demo-common.js
+web/js/demo-common.min.js
+web/demoapp/index.html
