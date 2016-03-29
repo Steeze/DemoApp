@@ -1,4 +1,4 @@
-var module = angular.module('demo-app', [ 'demo-api', 'ngAnimate', 'ngRoute', 'ngMessages' ]),
+var module = angular.module('demo-app', [ 'demo-api', 'demo-common', 'ngAnimate', 'ngRoute', 'ngMessages' ]),
     factory = module.factory,
     run = module.run,
     forEach = angular.forEach,
