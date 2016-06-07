@@ -397,11 +397,11 @@ module.exports = function (grunt) {
 
     //general
     grunt.registerTask('test', ['preloadTemplates', 'jasmine:all']);
-    grunt.registerTask('js-dev', ['info', 'concat', 'jshint', 'test']);
+    grunt.registerTask('js-dev', ['info', 'concat', 'jshint', 'test', 'watch']);
 
     //dev tasks
-    grunt.registerTask('dev-build', ['setenv:dev', 'preprocess', 'uglify', 'js-dev', 'less:dev', 'copy']);
-    grunt.registerTask('dev', ['dev-build','connect', 'watch']);
+    grunt.registerTask('dev-build', ['setenv:dev', 'preprocess', 'uglify', 'js-dev', 'copy']);
+    grunt.registerTask('dev', ['dev-build', 'watch']);
 
     //e2e tasks
     grunt.registerTask('e2e-build', ['setenv:e2e', 'preprocess', 'js-dev', 'uglify', 'less', 'copy']);
